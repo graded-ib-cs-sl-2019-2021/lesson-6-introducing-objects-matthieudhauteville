@@ -49,13 +49,14 @@ function setup() {
 
   /* ball[2] starts centered at (500,300) and has a diameter of 10.
    * It is green, and starts out moving right with speed 1 and down with speed 3. */
-  ball[2] = new Ball(500, 300, 90, color("green"), 1, 3);
+  ball[2] = new Ball(500, 300, 90, color("green"), 1, 3, "purple");
 
   /* =========== TASK 2 =================
  * Create a fourth ball in the array that starts at position (200,400), has a diameter and color of your choice
  * and a random speed (that is, don't give it a starting speed).
  * As you type, VS Code should help you figure out what each argument means - very helpful!
  */
+  ball[3] = new Ball(200, 400, 90, color("turquoise"));
 }
 
 function draw() {
@@ -81,11 +82,13 @@ function draw() {
     ball[0].move(); // moves the ball, based on its speed.
     ball[1].move();
     ball[2].move();
+    ball[3].move();
   }
 
   ball[0].draw(); // draw ball1
   ball[1].draw(); // draw ball2
   ball[2].draw(); // draw ball3
+  ball[3].draw(); // draw ball4
 }
 
 /* ===========  TASK 5 - Exploring Ball Objects =============
@@ -103,13 +106,13 @@ function draw() {
  * 5) You can now hover over the word `ball` and `ball3` and get information about the
  *    ACTUAL CURRENT STATE of the balls.
  * 6) Type `ball[0].x` in the debug console. What do you get?
- *
+ *  a number: 292.39648356166725
  *
  * 7) Type `ball[3].col` in the debug console. What do you get?
- *
+ * Gives me all the characteristics of the ball 3
  *
  * 8) Go back to the line above and remove the break point, then continue the code with the blue play button.
- *
+ * 
  * Now that you see how to create new Ball objects and make them move (add a fifth ball if you want!)
  * You should be ready to look at the code used to CREATE the ball objects.
  * Open the ball.ts file from the "modules" directory and read through it and complete those tasks.

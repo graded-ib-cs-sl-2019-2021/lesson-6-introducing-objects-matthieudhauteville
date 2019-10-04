@@ -34,6 +34,8 @@ export class Ball {
   public speedX: number;
   /** speed in y direction of the ball. positive is DOWN. */
   public speedY: number;
+  /** color of the ball's border */
+  public borderColor: string;
 
   /* ============ TASK 1 ============
    * Add a new public property of type string called 'borderColor'
@@ -64,6 +66,7 @@ export class Ball {
    * @param col OPTIONAL initial color. Default is red.
    * @param speedX OPTIONAL initial speed x-direction. Default is random.
    * @param speedY OPTIONAL initial speed y-direction. Default is random.
+   * @param borderColor
    */
   constructor(
     x: number,
@@ -72,6 +75,7 @@ export class Ball {
     col: p5.Color = color("red"),
     speedX: number = Math.random() * 10 - 5,
     speedY: number = Math.random() * 10 - 5,
+    borderColor: string = "black",
   ) {
     // We want to set the properties of the SPECIFIC OBJECT we are building. This is a common pattern.
     // the standalone `x` on the right side returns to the x from this function - the one called in.
@@ -82,6 +86,7 @@ export class Ball {
     this.col = col;
     this.speedX = speedX;
     this.speedY = speedY;
+    this.borderColor = borderColor;
   }
 
   /* ========= TASK 2 ==========
@@ -107,7 +112,7 @@ export class Ball {
 
   /** Draws the ball in the proper place, in the proper color. */
   public draw(): void {
-    stroke(0); // sets the border color to black
+    stroke(this.borderColor); // sets the border color to black
     fill(this.col); // sets the fill color to our ball's color
     if (this.onXEdge() || this.onYEdge()) {
       fill("white"); // make the ball flash if we hit the edge.
@@ -123,6 +128,7 @@ export class Ball {
   /* ========= TASK 4 ============
    * Go back to sketch.ts and modify ball[2] (when it is made) so that its border color is purple.
    * Then look at the built website. Did it work?
+   * YESSSS!
    */
 
   /** This PRIVATE method determines if a ball is on the edge of the screen vertically.
